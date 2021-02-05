@@ -44,8 +44,7 @@ int main() {
     vector<int> G {1,2};
     vector<int> H {1};
 
-//    Descomenta estas pruebas cuando implementes la
-//    segunda version
+
     expect( equalWOZeroes_v02(A,B) );
     expect( equalWOZeroes_v02(A,C) );
     expect( equalWOZeroes_v02(A,D) == false );
