@@ -1,0 +1,34 @@
+{
+  "tests": [
+   {
+      "name": "get catch",
+      "setup": "",
+      "run": "wget https://raw.githubusercontent.com/catchorg/Catch2/devel/extras/catch_amalgamated.hpp; wget https://raw.githubusercontent.com/catchorg/Catch2/devel/extras/catch_amalgamated.cpp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 20,
+      "points": null
+    },
+    {
+      "name": "cmake and make",
+      "setup": "",
+      "run": "cmake . && make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "run",
+      "setup": "",
+      "run": "./vectors02",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
