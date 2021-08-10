@@ -2,16 +2,29 @@
 #include <iostream>
 #include <algorithm>
 
+// Variables and macros for assertions, DO NOT CHANGE ****
+int totalAssertions = 0;
+int passedAssertions  = 0;
 #define expect( chk )  \
+    totalAssertions++; \
     if (!(chk)) \
-        printf("Assertion (%s) failed %s at line %d \n", #chk, __FILE__,__LINE__);
+        printf("\x1B[31mAssertion (%s) failed %s at line %d\033[0m\t\t\n", #chk, __FILE__,__LINE__); \
+    else { \
+        printf("\x1B[32mPassed line %d: %s\033[0m\t\t\n", __LINE__, #chk); \
+        passedAssertions++; \
+    }
+#define assertionReport() { \
+     printf("==========================================\n"); \
+     printf("Passed %d of %d assertions\n",passedAssertions,totalAssertions); \
+     printf("\n"); \
+    }
+//*******************************************************
 
 using namespace std;
 
 
 
-// Esta es una versión medio ineficiente pero bien
-// compacta de expresar.
+// Esta es una versión medio ineficiente pero bien compacta de expresar.
 
 bool equalWOZeroes_v01( vector<int> &A, vector<int> &B ) {
     // borramos los ceros de A
@@ -27,8 +40,8 @@ bool equalWOZeroes_v01( vector<int> &A, vector<int> &B ) {
 }
 
 
-// Aquí vas a implementar el algoritmo que les presenté en el
-// video.
+// Aquí vas a implementar el algoritmo que les presenté en el video.
+
 bool equalWOZeroes_v02( const vector<int> &A, const vector<int> &B ) {
     return false;
 }
@@ -64,7 +77,6 @@ int main() {
     expect( equalWOZeroes_v01(G,H) == false );
     expect( equalWOZeroes_v01(H,G) == false );
 
-    cout << "FIN! (si no ves Assertions arriba pas'o todas las pruebas)\n";
-
+    assertionReport();
 
 }
